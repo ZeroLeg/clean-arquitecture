@@ -4,34 +4,26 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { type Title } from './../domain/Title'
 
-export const useListStore = defineStore('title', () => {
-  const items = ref<Title[]>([])
+import { getAllTitles } from './../aplication/get-all/getAllTitles'
+import { createTitle } from './../aplication/create/createTitle'
+import { removeTitle } from './../aplication/remove/removeTitle'
 
-  const itemCount = computed(() => items.value.length)
+import { createApiTitleRepository } from '../infrastructure/ApiTitleRepository'
 
-  const addItem = (item: Title) => {
-    items.value.push(item)
-  }
+export const useTitleStore = defineStore('title', () => {
+  const titles = ref<Title[]>([])
 
-  const fetchItems = async () => {
-    try {
-      const response = await fetch('/api/items')
-      const data: Title[] = await response.json()
-      items.value = data
-    } catch (error) {
-      console.error('Error fetching items:', error)
-    }
-  }
+  const getAll = getAllTitles(createApiTitleRepository())
+  const addTitle = (title: Title) => createTitle(createApiTitleRepository(), title)
+  const deleteTitle = (id: string) => removeTitle(createApiTitleRepository(), id)
 
-  const removeItem = (id: string) => {
-    items.value = items.value.filter((item) => item.id !== id)
-  }
+  const titlesCount = computed(() => titles.value.length)
 
   return {
-    items,
-    itemCount,
-    addItem,
-    fetchItems,
-    removeItem
+    titles,
+    titlesCount,
+    addTitle,
+    getAll,
+    deleteTitle
   }
 })
