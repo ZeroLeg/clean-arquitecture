@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ListView from '@/views/ListView.vue'
+import titleRouter from '@/modules/title/router/index'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -9,12 +10,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/list/:caseuse',
-      name: 'list',
-      props: true,
-      component: ListView
-    }
+    ...titleRouter
   ]
 })
 

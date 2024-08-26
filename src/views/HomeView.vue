@@ -5,7 +5,7 @@ import HomeCard from '@/components/HomeCard.vue'
 const cards = reactive([
   {
     title: 'Title',
-    to: { name: 'list', params: { caseuse: 'title' } }
+    to: { name: 'title' }
   }
 ])
 </script>
