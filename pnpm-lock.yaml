@@ -20,6 +20,9 @@ importers:
       vue-router:
         specifier: ^4.3.3
         version: 4.4.3(vue@3.4.38(typescript@5.4.5))
+      vuetify:
+        specifier: ^3.7.0
+        version: 3.7.0(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
     devDependencies:
       '@faker-js/faker':
         specifier: ^8.4.1
@@ -2644,6 +2647,25 @@ packages:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
+        optional: true
+
+  vuetify@3.7.0:
+    resolution: {integrity: sha512-x+UaU4SPYNcJSE/voCTBFrNn0q9Spzx2EMfDdUj0NYgHGKb59OqnZte+AjaJaoOXy1AHYIGEpm5Ryk2BEfgWuw==}
+    engines: {node: ^12.20 || >=14.13}
+    peerDependencies:
+      typescript: '>=4.7'
+      vite-plugin-vuetify: '>=1.0.0'
+      vue: ^3.3.0
+      vue-i18n: ^9.0.0
+      webpack-plugin-vuetify: '>=2.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vite-plugin-vuetify:
+        optional: true
+      vue-i18n:
+        optional: true
+      webpack-plugin-vuetify:
         optional: true
 
   w3c-xmlserializer@5.0.0:
@@ -5407,6 +5429,12 @@ snapshots:
       '@vue/runtime-dom': 3.4.38
       '@vue/server-renderer': 3.4.38(vue@3.4.38(typescript@5.4.5))
       '@vue/shared': 3.4.38
+    optionalDependencies:
+      typescript: 5.4.5
+
+  vuetify@3.7.0(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)):
+    dependencies:
+      vue: 3.4.38(typescript@5.4.5)
     optionalDependencies:
       typescript: 5.4.5
 
