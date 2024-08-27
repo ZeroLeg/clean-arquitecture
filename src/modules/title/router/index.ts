@@ -1,4 +1,4 @@
-import ListTable from '../views/ListTable.vue'
+import ListTable from '../ui/views/ListTable.vue'
 
 const titleRouter = [
   {
